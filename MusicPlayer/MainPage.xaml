@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MusicPlayer.MainPage"
+             >
+
+    <ScrollView>
+        <StackLayout AutomationProperties.Name="songList" BackgroundColor="#000000">
+             <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="100"
+                HorizontalOptions="Start" />
+
+            <Label
+                Text="Music Player"
+                FontSize="32"
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label
+                Text="Listen to Your Music!"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="listen to music"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <ListView
+                x:Name="listView"
+                SelectionMode="Single"
+                SeparatorColor="Silver"
+                ItemSelected="listView_ItemSelected"
+                >
+               
+            </ListView>
+
+            <Button
+                x:Name="Select"
+                Text="Select Songs"
+                SemanticProperties.Hint="Pick a song from your files"
+                Clicked="SelectClicked"
+                HorizontalOptions="Center" Margin="0,0,0,10" />
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Text="Previous"
+                    x:Name="Prev"
+                    Grid.Column="0"
+                    WidthRequest="200" HorizontalOptions="End" Margin="10,0,0,0"
+                    Clicked="PreviousSong"
+                      />
+
+                <Button
+                    Text="Pause/Play"
+                    x:Name="Pause"
+                    Clicked="PlayClicked"
+                    Grid.Column="1"
+                    WidthRequest="200"
+                     />
+
+                <Button
+                    Text="Next"
+                    x:Name="Next"
+                    Grid.Column="2"
+                    WidthRequest="200" Margin="0,0,10,0"
+                    Clicked="NextSong"
+                      />
+
+
+            </Grid>
+
+            <Label
+                Text="Volume"
+                SemanticProperties.HeadingLevel="Level1"
+                SemanticProperties.Description="volume"
+                FontSize="12" HorizontalTextAlignment="Center" Margin="0,8,0,0" 
+                />
+
+            <Slider
+                Minimum="0"
+                Maximum="1"
+                VerticalOptions="Start"
+                HorizontalOptions="Fill"
+                AutomationProperties.Name="Volume"
+                WidthRequest="400" BackgroundColor="DarkMagenta" Margin="0,0,0,15"
+                ValueChanged="OnSliderValueChanged"
+                />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+
+
+
+
